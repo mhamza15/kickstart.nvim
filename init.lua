@@ -265,7 +265,7 @@ require('lazy').setup({
   --  event = 'VimEnter'
   --
   -- which loads which-key before all the UI elements are loaded. Events can be
-  -- normal autocommands events (`:help autocmd-events`).
+  -- normal autocommands events (`:help autocmd-events
   --
   -- Then, because we use the `config` key, the configuration only runs
   -- after the plugin has been loaded:
@@ -387,7 +387,11 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
-        -- pickers = {}
+        pickers = {
+          find_files = {
+            hidden = true,
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
