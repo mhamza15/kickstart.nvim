@@ -689,6 +689,9 @@ require('lazy').setup({
         },
       }
     end,
+    init = function()
+      require('lspconfig').gleam.setup {}
+    end,
   },
 
   { -- Autoformat
