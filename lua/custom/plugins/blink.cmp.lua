@@ -44,8 +44,12 @@ return {
       },
     },
 
-    -- experimental auto-brackets support
-    -- completion = { accept = { auto_brackets = { enabled = true } } },
+    completion = {
+      -- experimental auto-brackets support
+      -- accept = { auto_brackets = { enabled = true }
+
+      documentation = { auto_show = true },
+    },
 
     -- experimental signature help support
     signature = { enabled = true },
