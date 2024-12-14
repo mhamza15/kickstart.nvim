@@ -46,7 +46,7 @@ return {
 
     completion = {
       -- experimental auto-brackets support
-      -- accept = { auto_brackets = { enabled = true }
+      accept = { auto_brackets = { enabled = true } },
 
       documentation = { auto_show = true },
     },
