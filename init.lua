@@ -379,6 +379,19 @@ require('lazy').setup({
 
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
+
+      local telescopeConfig = require 'telescope.config'
+
+      -- Clone the default Telescope configuration
+      local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
+
+      -- I want to search in hidden/dot files.
+      table.insert(vimgrep_arguments, '--hidden')
+
+      -- I don't want to search in the `.git` directory.
+      table.insert(vimgrep_arguments, '--glob')
+      table.insert(vimgrep_arguments, '!**/.git/*')
+
       require('telescope').setup {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
@@ -388,12 +401,15 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
+        defaults = {
+          vimgrep_arguments = vimgrep_arguments,
+        },
         pickers = {
           find_files = {
-            hidden = true,
+            find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*' },
           },
           buffers = {
-            sort_lastused = true,
+            sort_mru = true,
           },
         },
         extensions = {
@@ -461,7 +477,7 @@ require('lazy').setup({
   { 'Bilal2453/luvit-meta', lazy = true },
 
   -- Highlight todo, notes, etc in comments
-  { 
+  {
     'folke/todo-comments.nvim',
     event = 'VimEnter',
     dependencies = { 'nvim-lua/plenary.nvim' },
