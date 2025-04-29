@@ -19,12 +19,25 @@ return {
       -- have a well standardized coding style. You can add additional
       -- languages here or re-enable it for the disabled ones.
       local disable_filetypes = { c = true, cpp = true }
+
       local lsp_format_opt
       if disable_filetypes[vim.bo[bufnr].filetype] then
         lsp_format_opt = 'never'
       else
         lsp_format_opt = 'fallback'
       end
+
+      -- Sort Tailwind CSS classes
+      local t_attached = vim.tbl_contains(
+        vim.tbl_map(function(c)
+          return c.name
+        end, vim.lsp.get_clients()),
+        'tailwindcss'
+      )
+      if t_attached and pcall(require, 'tailwind-tools') then
+        vim.cmd 'TailwindSort'
+      end
+
       return {
         timeout_ms = 1000,
         lsp_format = lsp_format_opt,
