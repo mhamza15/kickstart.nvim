@@ -185,6 +185,9 @@ return {
       },
 
       ruby_lsp = {},
+      tailwindcss = {
+        filetypes = { 'ruby' },
+      },
     }
 
     -- Ensure the servers and tools above are installed
@@ -219,9 +222,5 @@ return {
         end,
       },
     }
-  end,
-  init = function()
-    -- Gleam is not available in Mason, so we install it along with the language and set it up manually here.
-    require('lspconfig').gleam.setup {}
   end,
 }
