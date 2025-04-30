@@ -7,8 +7,24 @@ return {
     'nvim-telescope/telescope.nvim', -- optional
   },
   opts = {
+    server = {
+      settings = {
+        includeLanguages = {
+          ruby = 'html',
+        },
+        experimental = {
+          classRegex = {
+            [[class= "([^"]*)"]],
+            [[class: "([^"]*)"]],
+            [[class= '([^']*)']],
+            [[class: '([^']*)']],
+            [[cn\(\s*"([^"]*)"\s*(?:,\s*([^)]*))?\s*\)]],
+          },
+        },
+      },
+    },
     extension = {
-      queries = { 'ruby' }, -- use Tree-sitter queries in ~/.config/nvim/queries/ruby/class.scm
+      queries = { 'ruby' },
       patterns = {
         ruby = {
           'class:%s*"([^"]+)"', -- Matches class: "tailwind classes"
