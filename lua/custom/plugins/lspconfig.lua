@@ -185,6 +185,9 @@ return {
       },
 
       ruby_lsp = {},
+      stimulus_ls = {
+        filetypes = { 'javascript' },
+      },
       tailwindcss = {
         filetypes = { 'ruby' },
       },

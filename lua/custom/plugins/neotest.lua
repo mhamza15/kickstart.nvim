@@ -5,11 +5,13 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-treesitter/nvim-treesitter',
     { 'fredrikaverpil/neotest-golang', version = '*' },
+    'zidhuss/neotest-minitest',
   },
   config = function()
     require('neotest').setup {
       adapters = {
         require 'neotest-golang' { runner = 'gotestsum' },
+        require 'neotest-minitest',
       },
     }
   end,
