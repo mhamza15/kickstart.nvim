@@ -236,29 +236,29 @@ return {
           },
         },
 
-      stimulus_ls = {
-        filetypes = { 'javascript' },
-      },
+        stimulus_ls = {
+          filetypes = { 'javascript' },
+        },
 
-      tailwindcss = {
-        filetypes = { 'ruby' },
-        settings = {
-          tailwindCSS = {
-            includeLanguages = {
-              ruby = 'html',
-            },
-            experimental = {
-              classRegex = {
-                [[class= "([^"]*)"]],
-                [[class: "([^"]*)"]],
-                [[class= '([^']*)']],
-                [[class: '([^']*)']],
-                [[cn\(\s*"([^"]*)"\s*(?:,\s*([^)]*))?\s*\)]],
+        tailwindcss = {
+          filetypes = { 'ruby' },
+          settings = {
+            tailwindCSS = {
+              includeLanguages = {
+                ruby = 'html',
+              },
+              experimental = {
+                classRegex = {
+                  [[class= "([^"]*)"]],
+                  [[class: "([^"]*)"]],
+                  [[class= '([^']*)']],
+                  [[class: '([^']*)']],
+                  [[cn\(\s*"([^"]*)"\s*(?:,\s*([^)]*))?\s*\)]],
+                },
               },
             },
           },
         },
-      },
       }
 
       -- Ensure the servers and tools above are installed
