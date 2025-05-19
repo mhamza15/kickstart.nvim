@@ -1,5 +1,5 @@
 return {
-  'luckasRanarison/tailwind-tools.nvim',
+  'mhamza15/tailwind-tools.nvim',
   name = 'tailwind-tools',
   build = ':UpdateRemotePlugins',
   dependencies = {
@@ -7,6 +7,22 @@ return {
     'nvim-telescope/telescope.nvim', -- optional
   },
   opts = {
+    server = {
+      settings = {
+        includeLanguages = {
+          ruby = 'html',
+        },
+        experimental = {
+          classRegex = {
+            [[class= "([^"]*)"]],
+            [[class: "([^"]*)"]],
+            [[class= '([^']*)']],
+            [[class: '([^']*)']],
+            [[cn\(\s*"([^"]*)"\s*(?:,\s*([^)]*))?\s*\)]],
+          },
+        },
+      },
+    },
     extension = {
       queries = { 'ruby' },
       patterns = {
