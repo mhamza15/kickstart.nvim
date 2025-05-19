@@ -16,19 +16,16 @@ return {
     opts = {
       notify_on_error = false,
       format_on_save = function(bufnr)
-      -- Sort Tailwind CSS classes
-      local t_attached = vim.tbl_contains(
-        vim.tbl_map(
-          function(c)
-          return c.name
-        end, 
-        vim.lsp.get_clients()
-      ),
-        'tailwindcss'
-      )
-      if t_attached and pcall(require, 'tailwind-tools') then
-        vim.cmd 'TailwindSort'
-      end
+        -- Sort Tailwind CSS classes
+        local t_attached = vim.tbl_contains(
+          vim.tbl_map(function(c)
+            return c.name
+          end, vim.lsp.get_clients()),
+          'tailwindcss'
+        )
+        if t_attached and pcall(require, 'tailwind-tools') then
+          vim.cmd 'TailwindSort'
+        end
 
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
