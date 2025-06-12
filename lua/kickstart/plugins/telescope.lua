@@ -61,6 +61,9 @@ return {
         --   },
         -- },
         pickers = {
+          find_files = {
+            find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*' },
+          },
           buffers = {
             sort_mru = true,
             ignore_current_buffer = true,
