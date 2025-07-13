@@ -230,11 +230,9 @@ return {
         },
 
         ruby_lsp = {
-          settings = {
-            init_options = {
-              formatter = 'standard',
-              linters = { 'standard' },
-            },
+          init_options = {
+            formatter = 'standard',
+            linters = { 'standard' },
           },
         },
 
@@ -244,6 +242,22 @@ return {
 
         tailwindcss = {
           filetypes = { 'ruby' },
+          settings = {
+            tailwindCSS = {
+              includeLanguages = {
+                ruby = 'html',
+              },
+              experimental = {
+                classRegex = {
+                  [[class= "([^"]*)"]],
+                  [[class: "([^"]*)"]],
+                  [[class= '([^']*)']],
+                  [[class: '([^']*)']],
+                  [[cn\(\s*"([^"]*)"\s*(?:,\s*([^)]*))?\s*\)]],
+                },
+              },
+            },
+          },
         },
       }
 
