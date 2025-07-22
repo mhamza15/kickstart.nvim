@@ -97,7 +97,9 @@ return {
 
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
-          map('gO', require('telescope.builtin').lsp_document_symbols, 'Open Document Symbols')
+          map('gO', function()
+            require('telescope.builtin').lsp_document_symbols { show_line = true, symbol_width = 50 }
+          end, 'Open Document Symbols')
 
           -- Fuzzy find all the symbols in your current workspace.
           --  Similar to document symbols, except searches over your entire project.
@@ -213,6 +215,14 @@ return {
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
+        gopls = {
+          settings = {
+            gopls = {
+              staticcheck = true,
+              gofumpt = true,
+            },
+          },
+        },
 
         lua_ls = {
           -- cmd = { ... },
@@ -259,6 +269,8 @@ return {
             },
           },
         },
+
+        vtsls = {},
       }
 
       ---@type MasonLspconfigSettings
