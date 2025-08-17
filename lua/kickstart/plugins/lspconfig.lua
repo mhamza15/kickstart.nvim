@@ -98,7 +98,7 @@ return {
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
           map('gO', function()
-            require('telescope.builtin').lsp_document_symbols { show_line = true, symbol_width = 50 }
+            require('telescope.builtin').lsp_document_symbols { show_line = true, symbol_width = 40 }
           end, 'Open Document Symbols')
 
           -- Fuzzy find all the symbols in your current workspace.
@@ -269,15 +269,11 @@ return {
             },
           },
         },
-
-        vtsls = {},
       }
 
       ---@type MasonLspconfigSettings
       ---@diagnostic disable-next-line: missing-fields
-      require('mason-lspconfig').setup {
-        automatic_enable = vim.tbl_keys(servers or {}),
-      }
+      require('mason-lspconfig').setup {}
 
       -- Ensure the servers and tools above are installed
       --
